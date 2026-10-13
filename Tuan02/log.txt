@@ -1,0 +1,38 @@
+Ngày 18/9/2026
+Nhớ cài thư viện xgboot 
+Đổi DecisionTreeClassifier thành DecisionTreeRegressor
+Chuyển dữ liệu train/test của neural network sang float32
+Làm phẳng dự đoán neural network trước khi tạo submission
+Đổi định dạng model từ .h5 sang .keras
+Sửa đường dẫn submission thành tương đối
+Đã chạy kiểm tra thành công: cả hai mô hình tạo 
+
+Ngày 18/09/2026 - Trần Ngọc Phong
+-Thay đổi tham số của xgboost
+learing rate từ 0.1 sang 0.02, 0.03,0.05
+n_estimators từ 900 sang 1500, 2000, 3000
+max_depth từu 2 sang 3–5
+subsample từ 1 sang 0.7–0.8
+colsample_bytree từ 1 sang 0.5–0.8
+reg_alpha / reg_lambda từ 0/1 sang 0.01–0.1 / 1–5
+min_child_weight từu 1 sang 1–5
+base_score	0.25 bỏ đi (để mặc định)
+booster	có gblinear	bỏ gblinear, chỉ dùng gbtree
++Điểm chấm được của "sample_sub_nn.csv" là 0.14805
+
+
+======****======
+Ngày 19/9/1013x2
+Cài xgboost, tensorflow, keras do phong không nhắc
+
+Chỉnh tham số của neuron network batchsize từ 10 lên 20 kết quả summit là 0.16570 tăng khoảng 0.015 trong sai số
+Chỉnh tham số của neuron network giảm batchsize từ 10 xuống 8 kết quả summit là 0.15544 tăng khoảng 0.005
+Chỉnh tham số optimizer củ neuron network từ Adamax sang adam optimizer kết quả summit là 0.15653
+
+Thêm tham số cho decision tree: max_depth=6,min_samples_split=10, min_samples_leaf=5, max_features='sqrt' kết quả summit 0.24
+Chỉnh tham số max_depth lên 7 của decision tree kết qủa summit là 0.23843
+
+**** Teto word of the day ****
+Thêm cell code để prediction & submission cho xgboost không thay đổi tham số kết quả summit 0.13228 thấp nhất trong 3 mô hình
+Chỉnh xgboost max_depth từ 2 lên 4,n_estimators 900 xuống 700, learning rate xuống 0.09 kết quả summit kết quả 0.13218
+Chỉnh xgboost max_depth 4, n_estimators 500, trả learning rate về 0.1 kết quả summit 0.13311
